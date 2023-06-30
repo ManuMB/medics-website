@@ -8,8 +8,8 @@ import Favs from "../Routes/Favs";
 const Navbar = () => {
   return (
     <nav>
-      <Link to={Contact}>Contact Us</Link>
-      <Link to={Favs}>Favourites</Link>
+      <Link to={"/contact"}>Contact Us</Link>
+      <Link to={"/favs"}>Favourites</Link>
 
       <button>Change theme</button>
     </nav>

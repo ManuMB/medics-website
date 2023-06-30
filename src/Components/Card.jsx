@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { json, Link } from "react-router-dom";
 import img from "../images/doctor.jpg";
 
 const Card = ({ name, username, id }) => {
-  const [added, setAdded] = useState([]);
+  const [clicked, setClicked] = useState(false);
 
   const medics = {
     id,
@@ -11,10 +11,23 @@ const Card = ({ name, username, id }) => {
     username,
   };
 
+  useEffect(() => {
+    const saveCard = JSON.parse(localStorage.getItem("cards")) || [];
+    const searchCard = saveCard.find((c) => c.id === id);
+    if (searchCard) {
+      setClicked(true);
+    }
+  }, [id]);
+
   const addFav = () => {
     const saveCard = JSON.parse(localStorage.getItem("cards")) || [];
-    saveCard.push(medics);
-    localStorage.setItem("cards", JSON.stringify(saveCard));
+    if (!clicked) {
+      saveCard.push(medics);
+      localStorage.setItem("cards", JSON.stringify(saveCard));
+      setClicked(true);
+    } else {
+      alert("Medic is already added to favourites.");
+    }
   };
 
   return (

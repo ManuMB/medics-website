@@ -10,18 +10,24 @@ const Form = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name.trim().length < 5 || name.trim() === "") {
-      setError("El nombre es demasiado corto.");
+      setError(true);
+      alert("Error, name is too short.");
       setSubmitted(false);
       return;
+      /*}
+    if (!email.trim().contains("@")) {
+      setError(true);
+      alert("Error, email format not valid.");
+      setSubmitted(false);
     } else {
       setSubmitted(true);
       setError("");
+      */
     }
     console.log(error);
     console.log(submitted);
+    alert("Form submitted successfully.");
   };
-
-  //Aqui deberan implementar el form completo con sus validaciones
 
   return (
     <div>

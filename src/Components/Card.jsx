@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { json, Link } from "react-router-dom";
+import { ContextGlobal } from "./utils/global.context";
 import img from "../images/doctor.jpg";
 
 const Card = ({ name, username, id }) => {
+  const { theme } = useContext(ContextGlobal);
   const [clicked, setClicked] = useState(false);
 
   const medics = {
@@ -32,14 +34,17 @@ const Card = ({ name, username, id }) => {
 
   return (
     <div className=" ">
-      <div className="p-2 text-center card container rounded-xl bg-gray-100 border border-3 hover:transform hover:scale-105 transition-all duration-300">
+      <div
+        className="p-2 text-center card container rounded-xl border border-3 hover:transform hover:scale-105 transition-all duration-300"
+        style={{ background: theme.cardBackground }}
+      >
         <img
           src={img}
           className="medic-image rounded-full border-2 border-black "
           alt="Medic"
         ></img>
         <div className="py-3">
-          <h2>{name}</h2>
+          <h2 className="font-semibold text-lg">{name}</h2>
           <p>{username}</p>
           <p>{id}</p>
         </div>

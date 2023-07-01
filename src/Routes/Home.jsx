@@ -1,10 +1,11 @@
 import React from "react";
 import Card from "../Components/Card";
 import { useEffect, useState } from "react";
-
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
+import { useContext } from "react";
+import { ContextGlobal } from "../Components/utils/global.context";
 
 const Home = () => {
+  const { theme } = useContext(ContextGlobal);
   const [users, setUsers] = useState([]);
 
   async function handleFetch() {
@@ -19,8 +20,8 @@ const Home = () => {
   }, []);
 
   return (
-    <main className="card-map">
-      <div className="card-grid">
+    <main className="card-map" style={{ background: theme.backgroundColor }}>
+      <div className="card-grid pt-8 pb-8 justify-center align-middle">
         {users.map((user) => {
           return (
             <Card

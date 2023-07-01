@@ -7,12 +7,14 @@ import wappImg from "../images/ico-whatsapp.png";
 
 const Footer = () => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col w-screen">
       <div className="flex-grow"></div>
       <footer className="bg-blue-600 py-5 flex flex-row justify-between">
-        <p className="self-center">Made by ManuMB</p>
-        <div className="flex gap-x-2">
-          <p>Follow us</p>
+        <p className="self-center ml-6 text-white">
+          Made by Manuel Menendez Balbi
+        </p>
+        <div className="flex gap-x-3 mr-6">
+          <p className="self-center text-white">Follow us</p>
           <img src={faceImg} alt="Facebook logo" className="h-12 w-12" />
           <img src={instaImg} alt="Instagram logo" className="h-12 w-12" />
           <img src={tiktokImg} alt="TikTok Logo" className="h-12 w-12" />

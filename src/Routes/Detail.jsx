@@ -2,9 +2,11 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import img from "../images/doctor.jpg";
+import { useContext } from "react";
+import { ContextGlobal } from "../Components/utils/global.context";
 
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 const Detail = () => {
+  const { theme } = useContext(ContextGlobal);
   const params = useParams();
   const [medic, setMedic] = useState([]);
 
@@ -20,10 +22,15 @@ const Detail = () => {
   }, []);
 
   return (
-    <>
-      <h1 className="font-bold text-2xl">Contact details of {medic.name} </h1>
+    <div className="pt-8 pb-8" style={{ background: theme.backgroundColor }}>
+      <h1 className="font-bold text-2xl" style={{ color: theme.textColor }}>
+        Contact details of {medic.name}{" "}
+      </h1>
       <div className="flex justify-center h-min">
-        <div className="container rounded-xl bg-slate-200 w-min p-10 mt-10">
+        <div
+          className="container rounded-xl w-min p-10 mt-10"
+          style={{ background: theme.cardBackground }}
+        >
           <div className="flex flex-row justify-center items-center gap-x-8">
             <img
               src={img}
@@ -31,7 +38,7 @@ const Detail = () => {
               className="container rounded-full border-2 w-72 h-min border-black "
             ></img>
             <div className="flex flex-col gap-y-2">
-              <h2 className="font-bold">{medic.name}</h2>
+              <h2 className="font-bold text-xl">{medic.name}</h2>
               <p>{medic.email}</p>
               <p>{medic.phone}</p>
               <p>{medic.website}</p>
@@ -39,7 +46,7 @@ const Detail = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

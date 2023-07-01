@@ -31,16 +31,31 @@ const Card = ({ name, username, id }) => {
   };
 
   return (
-    <div className="card">
-      <img src={img} className="medic-image" alt="Medic"></img>
-      <h2>{name}</h2>
-      <p>{username}</p>
-      <p>{id}</p>
-      <Link to={`/${id}`}>Mostrar detalles</Link>
-      {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
-      <button onClick={addFav} className="favButton">
-        Add fav
-      </button>
+    <div className=" ">
+      <div className="p-2 text-center card container rounded-xl bg-gray-100 border border-3 hover:transform hover:scale-105 transition-all duration-300">
+        <img
+          src={img}
+          className="medic-image rounded-full border-2 border-black "
+          alt="Medic"
+        ></img>
+        <div className="py-3">
+          <h2>{name}</h2>
+          <p>{username}</p>
+          <p>{id}</p>
+        </div>
+        <Link
+          to={`/${id}`}
+          className="bg-transparent hover:bg-blue-500 text-blue-700 font-normal hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded"
+        >
+          Show details
+        </Link>
+        <button
+          onClick={addFav}
+          className="favButton rounded-full mt-5 text-white text-lg py-1 px-3 bg-blue-500 hover:bg-blue-700 font-semibold "
+        >
+          Add fav
+        </button>
+      </div>
     </div>
   );
 };

@@ -21,12 +21,23 @@ const Detail = () => {
 
   return (
     <>
-      <div>
-        <h1>Detail Dentist id </h1>
-        <img src={img} alt="Medic"></img>
-        <h2>{medic.name}</h2>
-        <p>{medic.phone}</p>
-        <p>{medic.website}</p>
+      <h1 className="font-bold text-2xl">Contact details of {medic.name} </h1>
+      <div className="flex justify-center h-min">
+        <div className="container rounded-xl bg-slate-200 w-min p-10 mt-10">
+          <div className="flex flex-row justify-center items-center gap-x-8">
+            <img
+              src={img}
+              alt="Medic"
+              className="container rounded-full border-2 w-72 h-min border-black "
+            ></img>
+            <div className="flex flex-col gap-y-2">
+              <h2 className="font-bold">{medic.name}</h2>
+              <p>{medic.email}</p>
+              <p>{medic.phone}</p>
+              <p>{medic.website}</p>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

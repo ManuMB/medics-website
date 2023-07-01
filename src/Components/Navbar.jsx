@@ -7,11 +7,22 @@ import Favs from "../Routes/Favs";
 
 const Navbar = () => {
   return (
-    <nav>
-      <Link to={"/contact"}>Contact Us</Link>
-      <Link to={"/favs"}>Favourites</Link>
+    <nav className="bg-blue-600 mb-10 w-screen flex flex-row justify-between">
+      <div>
+        <Link to={"/"} className="text-white">
+          Home
+        </Link>
+        <Link to={"/contact"} className="text-white">
+          Contact Us
+        </Link>
+        <Link to={"/favs"} className="text-white">
+          Favourites
+        </Link>
+      </div>
 
-      <button>Change theme</button>
+      <button className="rounded-full bg-gray-100 py-1 px-3 mr-4">
+        Change theme
+      </button>
     </nav>
   );
 };

@@ -20,7 +20,6 @@ const Home = () => {
 
   return (
     <main className="card-map">
-      <h1>Home</h1>
       <div className="card-grid">
         {users.map((user) => {
           return (

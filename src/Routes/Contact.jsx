@@ -5,10 +5,11 @@ import Form from "../Components/Form";
 
 const Contact = () => {
   return (
-    <div>
-      <h2>Want to know more?</h2>
-      <p>Send us your questions and we will contact you</p>
-      <Form />
+    <div className="">
+      <div className="">
+        <h1 className="font-bold text-2xl">Contact</h1>
+      </div>
+      <Form className="" />
     </div>
   );
 };
